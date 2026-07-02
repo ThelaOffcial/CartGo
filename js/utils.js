@@ -160,7 +160,7 @@ export const Validator = {
  * String Utilities
  */
 
-export const String = {
+export const StrUtil = {
   // Capitalize first letter
   capitalize: (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -207,7 +207,7 @@ export const String = {
  * Number Utilities
  */
 
-export const Number = {
+export const NumUtil = {
   // Format number with commas
   formatCommas: (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -233,12 +233,12 @@ export const Number = {
   
   // Calculate discount
   calculateDiscount: (originalPrice, discountPercent) => {
-    return Number.round(originalPrice * (1 - discountPercent / 100));
+    return NumUtil.round(originalPrice * (1 - discountPercent / 100));
   },
   
   // Calculate tax
   calculateTax: (price, taxPercent) => {
-    return Number.round(price * (taxPercent / 100));
+    return NumUtil.round(price * (taxPercent / 100));
   }
 };
 
@@ -246,7 +246,7 @@ export const Number = {
  * Date Utilities
  */
 
-export const Date = {
+export const DateUtil = {
   // Format date
   format: (date, format = 'DD/MM/YYYY') => {
     const d = new window.Date(date);
@@ -284,7 +284,7 @@ export const Date = {
     if (hours < 24) return `${hours}h ago`;
     if (days < 7) return `${days}d ago`;
     
-    return Date.format(date);
+    return DateUtil.format(date);
   },
   
   // Get current date
@@ -345,7 +345,7 @@ export const Storage = {
  * Array Utilities
  */
 
-export const Array = {
+export const ArrUtil = {
   // Unique values
   unique: (arr) => {
     return [...new Set(arr)];
@@ -395,7 +395,7 @@ export const Array = {
   
   // Average values
   average: (arr, key) => {
-    return Array.sum(arr, key) / arr.length;
+    return ArrUtil.sum(arr, key) / arr.length;
   }
 };
 
@@ -575,11 +575,11 @@ export const mergeObjects = (obj1, obj2) => {
 export default {
   DOM,
   Validator,
-  String,
-  Number,
-  Date,
+  StrUtil,
+  NumUtil,
+  DateUtil,
   Storage,
-  Array,
+  ArrUtil,
   Alert,
   API,
   debounce,
